@@ -1,0 +1,109 @@
+table driver_season_profile
+	lineageTag: dca47c5b-030c-435b-821f-ff0ac295f5d1
+	sourceLineageTag: [dbo].[driver_season_profile]
+
+	column driver_name
+		dataType: string
+		lineageTag: 92161131-0df7-4ad2-a6b1-f9e7ffd59252
+		sourceLineageTag: driver_name
+		summarizeBy: none
+		sourceColumn: driver_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column nationality
+		dataType: string
+		lineageTag: 19fe18cb-c6cb-4499-a8d6-b3185cfc090e
+		sourceLineageTag: nationality
+		summarizeBy: none
+		sourceColumn: nationality
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: 38aa6aff-e18e-4f8b-bd0b-ab6267a4b521
+		sourceLineageTag: season
+		summarizeBy: sum
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column races
+		dataType: int64
+		formatString: 0
+		lineageTag: 6aec792c-f1a4-4755-8acd-ec7b722e51e6
+		sourceLineageTag: races
+		summarizeBy: sum
+		sourceColumn: races
+
+		annotation SummarizationSetBy = Automatic
+
+	column wins
+		dataType: int64
+		formatString: 0
+		lineageTag: 05dc9886-0025-4426-8c1e-421eb6f5c929
+		sourceLineageTag: wins
+		summarizeBy: sum
+		sourceColumn: wins
+
+		annotation SummarizationSetBy = Automatic
+
+	column podiums
+		dataType: int64
+		formatString: 0
+		lineageTag: 57672755-4de8-4d52-a128-5d24cc518c03
+		sourceLineageTag: podiums
+		summarizeBy: sum
+		sourceColumn: podiums
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_points
+		dataType: double
+		lineageTag: 1b5ff34a-78cc-47a8-8c10-0eeb5d3b3d2a
+		sourceLineageTag: total_points
+		summarizeBy: sum
+		sourceColumn: total_points
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_grid_position
+		dataType: int64
+		formatString: 0
+		lineageTag: 65dc27ba-e062-49de-8842-df56e21d0143
+		sourceLineageTag: avg_grid_position
+		summarizeBy: sum
+		sourceColumn: avg_grid_position
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_finish_position
+		dataType: int64
+		formatString: 0
+		lineageTag: f1c2ea18-b5eb-480c-93a8-31e65a196cbe
+		sourceLineageTag: avg_finish_position
+		summarizeBy: sum
+		sourceColumn: avg_finish_position
+
+		annotation SummarizationSetBy = Automatic
+
+	column driverId
+		dataType: int64
+		formatString: 0
+		lineageTag: 61ed2771-d00d-4daa-9371-f600eec79ae3
+		sourceLineageTag: driverId
+		summarizeBy: none
+		sourceColumn: driverId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition driver_season_profile = entity
+		mode: directLake
+		source
+			entityName: driver_season_profile
+			expressionSource: 'DirectLake - gold'
+

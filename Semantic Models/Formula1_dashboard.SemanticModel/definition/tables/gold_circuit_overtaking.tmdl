@@ -1,0 +1,50 @@
+table gold_circuit_overtaking
+	lineageTag: c803dcfe-6b43-4c78-b289-54a8ff453e69
+	sourceLineageTag: [dbo].[gold_circuit_overtaking]
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: f51ef496-bfa3-45e4-a4bb-eef5081a6002
+		sourceLineageTag: circuitId
+		summarizeBy: none
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: b93156e1-f001-4a9d-92ff-df1ffe3c8d47
+		sourceLineageTag: season
+		summarizeBy: sum
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_positions_gained
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ce10ba5-5b6d-4cc1-8d3e-d52401784ce4
+		sourceLineageTag: avg_positions_gained
+		summarizeBy: sum
+		sourceColumn: avg_positions_gained
+
+		annotation SummarizationSetBy = Automatic
+
+	column big_overtakes
+		dataType: int64
+		formatString: 0
+		lineageTag: dbb75939-c7c6-44e5-b942-10938512c4e5
+		sourceLineageTag: big_overtakes
+		summarizeBy: sum
+		sourceColumn: big_overtakes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_circuit_overtaking = entity
+		mode: directLake
+		source
+			entityName: gold_circuit_overtaking
+			expressionSource: 'DirectLake - gold'
+

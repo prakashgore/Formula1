@@ -1,0 +1,69 @@
+table driver_assets
+	lineageTag: a8120a33-c159-46a3-834d-9249311200ba
+	sourceLineageTag: [dbo].[driver_assets]
+
+	column driver_key
+		dataType: int64
+		formatString: 0
+		lineageTag: b61c9205-fee1-48dd-8677-a3930b440c41
+		sourceLineageTag: driver_key
+		summarizeBy: sum
+		sourceColumn: driver_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column driverId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d7d32b3-2324-4096-b00b-219605030a1a
+		sourceLineageTag: driverId
+		summarizeBy: none
+		sourceColumn: driverId
+
+		annotation SummarizationSetBy = Automatic
+
+	column driver_name
+		dataType: string
+		lineageTag: ea59e54d-0ad0-4e3d-a827-9970286a9175
+		sourceLineageTag: driver_name
+		summarizeBy: none
+		sourceColumn: driver_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column nationality
+		dataType: string
+		lineageTag: 9f076d08-4661-42fb-b45b-c1878b1a2e20
+		sourceLineageTag: nationality
+		summarizeBy: none
+		sourceColumn: nationality
+
+		annotation SummarizationSetBy = Automatic
+
+	column profile_photo
+		dataType: string
+		lineageTag: 317deacc-0646-455f-ab4d-28ddfc5f02fd
+		sourceLineageTag: profile_photo
+		summarizeBy: none
+		sourceColumn: profile_photo
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag
+		dataType: string
+		lineageTag: 0cea1bdd-815e-46ba-acb9-a8fba352a32b
+		sourceLineageTag: flag
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: flag
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition driver_assets = entity
+		mode: directLake
+		source
+			entityName: driver_assets
+			expressionSource: 'DirectLake - gold'
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Flags_Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "71b253f8-74c4-b344-4d5e-3e21d7b7c086"
+  }
+}

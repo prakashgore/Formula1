@@ -1,0 +1,47 @@
+table circuit_assets
+	lineageTag: 4ee21919-1b8b-44c2-855f-3dab92fe67e4
+	sourceLineageTag: [dbo].[circuit_assets]
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d3725ef-4230-4826-9027-9c0cc0e8e1a4
+		sourceLineageTag: circuitId
+		summarizeBy: none
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuit_name
+		dataType: string
+		lineageTag: 923a6a93-0d56-42f3-8a29-4d4ee5600e29
+		sourceLineageTag: circuit_name
+		summarizeBy: none
+		sourceColumn: circuit_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 6cd13c61-6cd3-4b98-a1a6-136c48bd1141
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuit_img
+		dataType: string
+		lineageTag: 5f9a1db9-5612-4997-a96a-f870b4c79ff6
+		sourceLineageTag: circuit_img
+		summarizeBy: none
+		sourceColumn: circuit_img
+
+		annotation SummarizationSetBy = Automatic
+
+	partition circuit_assets = entity
+		mode: directLake
+		source
+			entityName: circuit_assets
+			expressionSource: 'DirectLake - gold'
+

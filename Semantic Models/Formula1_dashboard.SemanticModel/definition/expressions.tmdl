@@ -1,0 +1,11 @@
+expression 'DirectLake - gold' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/09a0eef0-8957-4dac-9acd-3af916afce13/b70f457f-ea59-45f3-91ab-3fc6d8e5fc8d", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 82851e2a-d4dd-4303-9607-3efe7c07cd8c
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[gold_ml_features]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[gold_ml_features_predictions]"}},"objectType":"Table"}]
+

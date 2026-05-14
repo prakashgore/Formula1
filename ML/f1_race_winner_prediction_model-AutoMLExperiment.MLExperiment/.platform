@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLExperiment",
+    "displayName": "f1_race_winner_prediction_model-AutoMLExperiment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "56cc9043-867b-aaf6-4ee4-9522aa071187"
+  }
+}

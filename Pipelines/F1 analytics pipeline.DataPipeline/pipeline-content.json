@@ -1,0 +1,222 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "60ab5b90-f79d-ad47-4d74-575ca853f01d",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Bronze to Silver",
+        "dependsOn": [
+          {
+            "activity": "Incremental Update",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "a4bfa574-4dca-af6f-4750-ac7286ddad8d",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Gold aggregations",
+        "dependsOn": [
+          {
+            "activity": "Wait after Silver nb execution",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "PBISemanticModelRefresh",
+        "typeProperties": {
+          "method": "post",
+          "groupId": "09a0eef0-8957-4dac-9acd-3af916afce13",
+          "datasetId": "ef5725c7-a9f8-4a5e-a27e-824154664a9b",
+          "commitMode": "Transactional",
+          "waitOnCompletion": true,
+          "operationType": "SemanticModelRefresh"
+        },
+        "externalReferences": {
+          "connection": "43b924b4-9fb6-43a2-ae5b-28177c0014ee"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Semantic model refresh1",
+        "dependsOn": [
+          {
+            "activity": "Gold aggregations",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Email",
+        "typeProperties": {
+          "body": "<p>Pipeline failed</p>\n<p>@{pipeline().RunId}@{pipeline().Pipeline}@{pipeline().DataFactory}</p>",
+          "to": "Skadam1@parkar.in",
+          "subject": "Bronze to Silver FAILED"
+        },
+        "externalReferences": {
+          "connection": "efb6de2f-defe-447a-8685-81439f3e308d"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "On Failure Email",
+        "dependsOn": [
+          {
+            "activity": "Bronze to Silver",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "3e15629a-e570-91f1-40e7-a164828c20e8",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Incremental Update",
+        "dependsOn": []
+      },
+      {
+        "type": "Office365Email",
+        "typeProperties": {
+          "body": "<p>F1 Dashboard is updated and running live!</p>",
+          "to": "Skadam1@parkar.in",
+          "subject": "F1 Dashboard is ready"
+        },
+        "externalReferences": {
+          "connection": "efb6de2f-defe-447a-8685-81439f3e308d"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "On Success email",
+        "dependsOn": [
+          {
+            "activity": "Semantic model refresh1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Wait",
+        "typeProperties": {
+          "waitTimeInSeconds": 120
+        },
+        "name": "Wait after Silver nb execution",
+        "description": "This wait activity is added so that I don't hit the API rate limit in my free fabric trial capacity. ",
+        "dependsOn": [
+          {
+            "activity": "Bronze to Silver",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Email",
+        "typeProperties": {
+          "body": "<p>Pipeline failed</p>\n<p>@{pipeline().RunId}@{pipeline().Pipeline}@{pipeline().DataFactory}</p>",
+          "to": "Skadam1@parkar.in",
+          "subject": "Bronze to Silver FAILED"
+        },
+        "externalReferences": {
+          "connection": "efb6de2f-defe-447a-8685-81439f3e308d"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "On Failure Email_copy1",
+        "dependsOn": [
+          {
+            "activity": "Incremental Update",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Email",
+        "typeProperties": {
+          "body": "<p>Pipeline failed</p>\n<p>@{pipeline().RunId}@{pipeline().Pipeline}@{pipeline().DataFactory}</p>",
+          "to": "Skadam1@parkar.in",
+          "subject": "Bronze to Silver FAILED"
+        },
+        "externalReferences": {
+          "connection": "efb6de2f-defe-447a-8685-81439f3e308d"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "On Failure Email_copy2",
+        "dependsOn": [
+          {
+            "activity": "Gold aggregations",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

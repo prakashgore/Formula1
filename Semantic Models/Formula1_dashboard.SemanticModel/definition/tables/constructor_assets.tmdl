@@ -1,0 +1,57 @@
+table constructor_assets
+	lineageTag: b7202111-866d-4c5a-aab9-70e2f3683e24
+	sourceLineageTag: [dbo].[constructor_assets]
+
+	column constructor_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b4a9dfc-0255-403b-8a02-3d7ba2f43bae
+		sourceLineageTag: constructor_key
+		summarizeBy: sum
+		sourceColumn: constructor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column constructorId
+		dataType: int64
+		formatString: 0
+		lineageTag: 95acf76e-b6cc-44c6-bf39-b1c70cff3fe6
+		sourceLineageTag: constructorId
+		summarizeBy: none
+		sourceColumn: constructorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column constructor_name
+		dataType: string
+		lineageTag: 0bf02244-7c40-432e-8753-b17400f3971e
+		sourceLineageTag: constructor_name
+		summarizeBy: none
+		sourceColumn: constructor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column side_profile
+		dataType: string
+		lineageTag: 02ecf50f-1564-4707-b0cd-d548dd452084
+		sourceLineageTag: side_profile
+		summarizeBy: none
+		sourceColumn: side_profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column logo
+		dataType: string
+		lineageTag: ae3d2a70-ea3f-48ed-95b5-cc6d044e333b
+		sourceLineageTag: logo
+		summarizeBy: none
+		sourceColumn: logo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition constructor_assets = entity
+		mode: directLake
+		source
+			entityName: constructor_assets
+			expressionSource: 'DirectLake - gold'
+

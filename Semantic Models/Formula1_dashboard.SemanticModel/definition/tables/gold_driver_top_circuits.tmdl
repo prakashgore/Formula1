@@ -1,0 +1,69 @@
+table gold_driver_top_circuits
+	lineageTag: 5b739e1e-a483-45c4-9d9b-505b48008c5d
+	sourceLineageTag: [dbo].[gold_driver_top_circuits]
+
+	column driverId
+		dataType: int64
+		formatString: 0
+		lineageTag: a5a15a72-2985-486a-b35f-a6d2a91bf08b
+		sourceLineageTag: driverId
+		summarizeBy: none
+		sourceColumn: driverId
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a66bb5f-249d-4cd4-8967-9fa1b9adcef7
+		sourceLineageTag: circuitId
+		summarizeBy: count
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuit_name
+		dataType: string
+		lineageTag: 8c15ddeb-b182-42fd-a8c2-eb087dd4c6bf
+		sourceLineageTag: circuit_name
+		summarizeBy: none
+		sourceColumn: circuit_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column wins_at_circuit
+		dataType: int64
+		formatString: 0
+		lineageTag: 410251d5-cbf2-4f0b-af73-f5b40c7b8de6
+		sourceLineageTag: wins_at_circuit
+		summarizeBy: sum
+		sourceColumn: wins_at_circuit
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_fastest_lap_speed
+		dataType: int64
+		formatString: 0
+		lineageTag: cb34aad3-d3f7-49cb-96fb-8ea59d63905b
+		sourceLineageTag: avg_fastest_lap_speed
+		summarizeBy: sum
+		sourceColumn: avg_fastest_lap_speed
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuit_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 375bde96-4f8f-4c7f-b9b1-0f802536702d
+		sourceLineageTag: circuit_rank
+		summarizeBy: sum
+		sourceColumn: circuit_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_driver_top_circuits = entity
+		mode: directLake
+		source
+			entityName: gold_driver_top_circuits
+			expressionSource: 'DirectLake - gold'
+

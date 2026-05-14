@@ -1,0 +1,65 @@
+relationship 95dd0e30-c8f5-e020-4700-69300671f56d
+	fromColumn: constructor_season.constructorId
+	toColumn: constructor_assets.constructorId
+
+relationship efb760b3-525b-6da3-b378-1dedcff0daf5
+	fromColumn: constructor_season.season
+	toColumn: gold_dim_season.season
+
+relationship a4c1caa9-2f85-a50b-f2fc-14d88b6e91e6
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: gold_dim_circuit.circuitId
+	toColumn: circuit_assets.circuitId
+
+relationship 0177a7ff-580c-bbdd-5e21-d5dbd8e57faa
+	fromColumn: gold_fact_circuit_race_profile.circuitId
+	toColumn: gold_dim_circuit.circuitId
+
+relationship 6f92fd3b-b15a-11af-73e6-c38483c80f17
+	fromColumn: gold_circuit_overtaking.circuitId
+	toColumn: gold_dim_circuit.circuitId
+
+relationship ac864350-fc45-00f7-bf96-c28f7f45a5ec
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: gold_dim_circuit.circuitId
+	toColumn: gold_fact_circuit_strategy_index.circuitId
+
+relationship d471db3e-b476-8f58-f5d7-c0c971518335
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_constructor_driver_dnf.constructorId
+	toColumn: constructor_assets.constructorId
+
+relationship 5d005c7b-33de-b9a0-3b08-3eea242d0719
+	crossFilteringBehavior: bothDirections
+	fromColumn: driver_season_profile.driverId
+	toColumn: driver_assets.driverId
+
+relationship e09c3090-8a54-ae09-df16-a02ab38713e7
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_driver_top_circuits.driverId
+	toColumn: driver_assets.driverId
+
+relationship b15ca2e9-13d2-8bb2-4269-aed3b167b8b4
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_constructor_driver_dnf.driverId
+	toColumn: driver_assets.driverId
+
+relationship 3f552c76-0b9e-2708-8310-7c270d730ca0
+	fromColumn: gold_constructor_driver_dnf.season
+	toColumn: gold_dim_season.season
+
+relationship 37d79e8e-a728-62f5-22a0-337def9248bc
+	fromColumn: gold_constructor_race_status.constructorId
+	toColumn: constructor_assets.constructorId
+
+relationship 48d24153-c6b2-d36c-2211-907f70d8cfff
+	fromColumn: driver_assets.driverId
+	toColumn: gold_constructor_race_status.driverId
+
+relationship 2f7289e2-e203-23bd-194e-632430452bc5
+	fromColumn: gold_constructor_race_status.season
+	toColumn: gold_dim_season.season
+

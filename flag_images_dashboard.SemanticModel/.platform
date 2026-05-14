@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "flag_images_dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bcf7b89c-110c-ab6f-4e18-3eed72681e0f"
+  }
+}

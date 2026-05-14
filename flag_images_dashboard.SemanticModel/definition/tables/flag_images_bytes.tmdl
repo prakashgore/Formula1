@@ -1,0 +1,47 @@
+table flag_images_bytes
+	lineageTag: 123a6372-0464-4c84-a67e-992ef52cd05d
+	sourceLineageTag: [dbo].[flag_images_bytes]
+
+	column doc_id
+		dataType: string
+		lineageTag: 90f0dce0-1829-4ef7-abe9-568ab4d81268
+		sourceLineageTag: doc_id
+		summarizeBy: none
+		sourceColumn: doc_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_name
+		dataType: string
+		lineageTag: 37ba0fa4-97c2-47a8-a967-365ff6e1b6f6
+		sourceLineageTag: doc_name
+		summarizeBy: none
+		sourceColumn: doc_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column format
+		dataType: string
+		lineageTag: e68e1f6f-0080-4d28-8e8e-b9189c0be442
+		sourceLineageTag: format
+		summarizeBy: none
+		sourceColumn: format
+
+		annotation SummarizationSetBy = Automatic
+
+	column processed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e9ceed60-35b6-4a68-a91c-e808eb43c603
+		sourceLineageTag: processed_at
+		summarizeBy: none
+		sourceColumn: processed_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition flag_images_bytes = entity
+		mode: directLake
+		source
+			entityName: flag_images_bytes
+			expressionSource: 'DirectLake - raw'
+

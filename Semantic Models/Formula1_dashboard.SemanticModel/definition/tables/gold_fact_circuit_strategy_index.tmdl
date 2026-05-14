@@ -1,0 +1,59 @@
+table gold_fact_circuit_strategy_index
+	lineageTag: 6b5e9d4b-7889-4009-8878-a7a6fca4734a
+	sourceLineageTag: [dbo].[gold_fact_circuit_strategy_index]
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a4d58ad-0b56-4544-9c7d-44fc1c172158
+		sourceLineageTag: circuitId
+		summarizeBy: none
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column overtaking_index
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cf0a690-2d4f-4b53-8b20-68adf136c44e
+		sourceLineageTag: overtaking_index
+		summarizeBy: sum
+		sourceColumn: overtaking_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column dnf_risk_index
+		dataType: int64
+		formatString: 0
+		lineageTag: 0867bd61-39cf-49bb-baf3-f017ee6a88b2
+		sourceLineageTag: dnf_risk_index
+		summarizeBy: sum
+		sourceColumn: dnf_risk_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column qualifying_dependency
+		dataType: int64
+		formatString: 0
+		lineageTag: 29985a03-83df-47ed-a042-b34ceec50417
+		sourceLineageTag: qualifying_dependency
+		summarizeBy: sum
+		sourceColumn: qualifying_dependency
+
+		annotation SummarizationSetBy = Automatic
+
+	column strategy_type
+		dataType: string
+		lineageTag: 7f29036a-b423-4de1-9145-884ece2130f2
+		sourceLineageTag: strategy_type
+		summarizeBy: none
+		sourceColumn: strategy_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_circuit_strategy_index = entity
+		mode: directLake
+		source
+			entityName: gold_fact_circuit_strategy_index
+			expressionSource: 'DirectLake - gold'
+

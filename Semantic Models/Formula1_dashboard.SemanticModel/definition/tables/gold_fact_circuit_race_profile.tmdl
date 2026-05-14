@@ -1,0 +1,100 @@
+table gold_fact_circuit_race_profile
+	lineageTag: b6b48078-d7be-43d0-8a7b-17519bdc8ee1
+	sourceLineageTag: [dbo].[gold_fact_circuit_race_profile]
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fe78dd5-defb-40f7-bee2-1a8cd8ff8e19
+		sourceLineageTag: circuitId
+		summarizeBy: none
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: 319510bb-33f4-4822-8be7-3743004b5c15
+		sourceLineageTag: season
+		summarizeBy: sum
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column race_entries
+		dataType: int64
+		formatString: 0
+		lineageTag: 572f98a9-ccba-4c34-bebb-bed000714e7b
+		sourceLineageTag: race_entries
+		summarizeBy: sum
+		sourceColumn: race_entries
+
+		annotation SummarizationSetBy = Automatic
+
+	column wins
+		dataType: int64
+		formatString: 0
+		lineageTag: 50bb672f-68b1-453f-817d-a21dabdb5afc
+		sourceLineageTag: wins
+		summarizeBy: sum
+		sourceColumn: wins
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_grid_pos_winner
+		dataType: int64
+		formatString: 0
+		lineageTag: c5d0e669-b6ee-4ab2-add5-aee0ed747d4e
+		sourceLineageTag: avg_grid_pos_winner
+		summarizeBy: sum
+		sourceColumn: avg_grid_pos_winner
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_positions_gained
+		dataType: int64
+		formatString: 0
+		lineageTag: 62f2bff2-1588-4e53-bd87-2c639fc7e0dd
+		sourceLineageTag: avg_positions_gained
+		summarizeBy: sum
+		sourceColumn: avg_positions_gained
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_dnfs
+		dataType: int64
+		formatString: 0
+		lineageTag: 604263ff-cb38-4106-9f28-460b3b93403b
+		sourceLineageTag: total_dnfs
+		summarizeBy: sum
+		sourceColumn: total_dnfs
+
+		annotation SummarizationSetBy = Automatic
+
+	column accident_dnfs
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c2edee5-c651-4316-91aa-b61254f88a8f
+		sourceLineageTag: accident_dnfs
+		summarizeBy: sum
+		sourceColumn: accident_dnfs
+
+		annotation SummarizationSetBy = Automatic
+
+	column mechanical_dnfs
+		dataType: int64
+		formatString: 0
+		lineageTag: 882dd020-0628-47f4-92c7-57bae7ba2018
+		sourceLineageTag: mechanical_dnfs
+		summarizeBy: sum
+		sourceColumn: mechanical_dnfs
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_circuit_race_profile = entity
+		mode: directLake
+		source
+			entityName: gold_fact_circuit_race_profile
+			expressionSource: 'DirectLake - gold'
+

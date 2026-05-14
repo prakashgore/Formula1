@@ -1,0 +1,69 @@
+table gold_dim_circuit
+	lineageTag: 87cf287f-624f-412a-b01f-76f7f4e91278
+	sourceLineageTag: [dbo].[gold_dim_circuit]
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: f7c12ee5-20fd-4c54-b006-a5b6346f2c77
+		sourceLineageTag: circuitId
+		summarizeBy: none
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuit_name
+		dataType: string
+		lineageTag: 26ed919e-3cbb-472b-b30b-90a140d36250
+		sourceLineageTag: circuit_name
+		summarizeBy: none
+		sourceColumn: circuit_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: bfa2a03d-906f-484a-8290-0f2472542c73
+		sourceLineageTag: location
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: bedb2383-042d-460e-8a12-698d4d1eebd2
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column lat
+		dataType: double
+		lineageTag: e7fe4f78-567d-4322-b73a-e2abf708e216
+		sourceLineageTag: lat
+		summarizeBy: sum
+		sourceColumn: lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lng
+		dataType: double
+		lineageTag: b8f5e606-7261-4d94-b873-fdc3b1f31683
+		sourceLineageTag: lng
+		summarizeBy: sum
+		sourceColumn: lng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_dim_circuit = entity
+		mode: directLake
+		source
+			entityName: gold_dim_circuit
+			expressionSource: 'DirectLake - gold'
+

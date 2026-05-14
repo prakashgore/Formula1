@@ -1,0 +1,28 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - gold"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
+
+ref table constructor_season
+ref table driver_season_profile
+ref table driver_assets
+ref table constructor_assets
+ref table gold_dim_season
+ref table gold_fact_circuit_strategy_index
+ref table gold_circuit_overtaking
+ref table gold_fact_circuit_race_profile
+ref table gold_dim_circuit
+ref table circuit_assets
+ref table gold_constructor_driver_dnf
+ref table gold_driver_top_circuits
+ref table gold_constructor_race_status
+

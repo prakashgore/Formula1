@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLModel",
+    "displayName": "f1_race_winner_prediction_model"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9d20b7a8-5fc5-9fc3-4abd-a39471df90a3"
+  }
+}

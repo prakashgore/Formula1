@@ -1,0 +1,80 @@
+table gold_constructor_race_status
+	lineageTag: 9c2abd6b-9b4a-464f-bf1b-8b70c85f9c21
+	sourceLineageTag: [dbo].[gold_constructor_race_status]
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: ada10365-3220-46bd-9cc8-5f51d48b7ea2
+		sourceLineageTag: season
+		summarizeBy: none
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column driverId
+		dataType: int64
+		formatString: 0
+		lineageTag: b9afaf20-34b0-4bf4-912e-ddc31c7e6d93
+		sourceLineageTag: driverId
+		summarizeBy: none
+		sourceColumn: driverId
+
+		annotation SummarizationSetBy = Automatic
+
+	column finish_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 6efa6d39-2565-425f-b7af-4f403f460265
+		sourceLineageTag: finish_flag
+		summarizeBy: sum
+		sourceColumn: finish_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column dnf_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 6649b2be-1440-40ff-965c-9178ad9ddff4
+		sourceLineageTag: dnf_flag
+		summarizeBy: sum
+		sourceColumn: dnf_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column constructorId
+		dataType: int64
+		formatString: 0
+		lineageTag: 98fd60f9-0dd5-4364-a911-6df368d40fec
+		sourceLineageTag: constructorId
+		summarizeBy: none
+		sourceColumn: constructorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column raceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 191d1e21-99a7-44fd-8efb-368b58e7ac3c
+		sourceLineageTag: raceId
+		summarizeBy: count
+		sourceColumn: raceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column statusId
+		dataType: int64
+		formatString: 0
+		lineageTag: ceb915dc-84ae-4981-8ba6-f5f0937d1bdd
+		sourceLineageTag: statusId
+		summarizeBy: count
+		sourceColumn: statusId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_constructor_race_status = entity
+		mode: directLake
+		source
+			entityName: gold_constructor_race_status
+			expressionSource: 'DirectLake - gold'
+

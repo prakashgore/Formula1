@@ -1,0 +1,69 @@
+table gold_constructor_driver_dnf
+	lineageTag: a5b1efa3-5e9f-4c8f-8941-bcb6cd25dab4
+	sourceLineageTag: [dbo].[gold_constructor_driver_dnf]
+
+	column constructorId
+		dataType: int64
+		formatString: 0
+		lineageTag: ca8c4f70-0a15-4d88-8072-e026fea3f35b
+		sourceLineageTag: constructorId
+		summarizeBy: none
+		sourceColumn: constructorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column raceId
+		dataType: int64
+		formatString: 0
+		lineageTag: fdf4ef6b-44a2-475e-b8cd-c5b8ed3dbf6c
+		sourceLineageTag: raceId
+		summarizeBy: count
+		sourceColumn: raceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column driverId
+		dataType: int64
+		formatString: 0
+		lineageTag: c1357ad2-b2ac-45f3-9ba5-7bf6238e615a
+		sourceLineageTag: driverId
+		summarizeBy: count
+		sourceColumn: driverId
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dfcd4ee-4fe4-4d45-b372-a27bd3ce1585
+		sourceLineageTag: season
+		summarizeBy: none
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column statusId
+		dataType: int64
+		formatString: 0
+		lineageTag: c46aed80-ddbd-423a-818c-db118e585998
+		sourceLineageTag: statusId
+		summarizeBy: count
+		sourceColumn: statusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: b8adfcf8-9ca2-4950-9232-856a0d6daaf3
+		sourceLineageTag: status
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_constructor_driver_dnf = entity
+		mode: directLake
+		source
+			entityName: gold_constructor_driver_dnf
+			expressionSource: 'DirectLake - gold'
+

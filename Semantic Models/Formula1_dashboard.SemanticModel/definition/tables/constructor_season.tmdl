@@ -1,0 +1,80 @@
+table constructor_season
+	lineageTag: 061c7b4d-b1cb-4643-bd9a-67e1cca1c179
+	sourceLineageTag: [dbo].[constructor_season]
+
+	column constructorId
+		dataType: int64
+		formatString: 0
+		lineageTag: 76a9ed93-3947-4246-84b9-2db91cf116d3
+		sourceLineageTag: constructorId
+		summarizeBy: none
+		sourceColumn: constructorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: f40441e4-dda5-4482-b2fd-a56cb96e0c10
+		sourceLineageTag: season
+		summarizeBy: none
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column races
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ac6b885-1c9b-42d1-8e2e-cae8aa02e531
+		sourceLineageTag: races
+		summarizeBy: sum
+		sourceColumn: races
+
+		annotation SummarizationSetBy = Automatic
+
+	column wins
+		dataType: int64
+		formatString: 0
+		lineageTag: 31049128-c398-4a86-9a4b-48dd350f5fcf
+		sourceLineageTag: wins
+		summarizeBy: sum
+		sourceColumn: wins
+
+		annotation SummarizationSetBy = Automatic
+
+	column podiums
+		dataType: int64
+		formatString: 0
+		lineageTag: f3452ca8-c9d2-4580-bf26-2006e2683a53
+		sourceLineageTag: podiums
+		summarizeBy: sum
+		sourceColumn: podiums
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_grid_position
+		dataType: int64
+		formatString: 0
+		lineageTag: 1aae28eb-973d-4a6c-8342-19d42e92b39b
+		sourceLineageTag: avg_grid_position
+		summarizeBy: sum
+		sourceColumn: avg_grid_position
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_finish_position
+		dataType: int64
+		formatString: 0
+		lineageTag: cbddd20c-1aad-455e-bc8b-fa2c30694144
+		sourceLineageTag: avg_finish_position
+		summarizeBy: sum
+		sourceColumn: avg_finish_position
+
+		annotation SummarizationSetBy = Automatic
+
+	partition constructor_season = entity
+		mode: directLake
+		source
+			entityName: constructor_season
+			expressionSource: 'DirectLake - gold'
+

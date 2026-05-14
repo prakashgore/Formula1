@@ -1,0 +1,64 @@
+table flag_images_64
+	lineageTag: b011b4a1-02c3-4aac-93ec-4c7cdfe9dcaf
+	sourceLineageTag: [dbo].[flag_images_64]
+
+	measure Measure
+		lineageTag: d7a90237-e67e-4d26-8868-71a5c4dd9eaa
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	column doc_id
+		dataType: string
+		lineageTag: a983e336-0c5e-4232-9aba-546f63c70fa2
+		sourceLineageTag: doc_id
+		summarizeBy: none
+		sourceColumn: doc_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_name
+		dataType: string
+		lineageTag: a9df3359-4195-4361-a1a4-704b53fb0f43
+		sourceLineageTag: doc_name
+		summarizeBy: none
+		sourceColumn: doc_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column format
+		dataType: string
+		lineageTag: 0a268f79-9b0d-4031-8fad-93e5833cd61f
+		sourceLineageTag: format
+		summarizeBy: none
+		sourceColumn: format
+
+		annotation SummarizationSetBy = Automatic
+
+	column base64_encoding
+		dataType: string
+		lineageTag: f247de3d-78c5-43b1-9ed5-65862a280446
+		sourceLineageTag: base64_encoding
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: base64_encoding
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column processed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: be9f875e-1e49-4e81-ab30-d223d92c0492
+		sourceLineageTag: processed_at
+		summarizeBy: none
+		sourceColumn: processed_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition flag_images_64 = entity
+		mode: directLake
+		source
+			entityName: flag_images_64
+			expressionSource: 'DirectLake - raw'
+
